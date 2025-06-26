@@ -59,8 +59,13 @@ class _StringsIt extends _StringsI18n {
   }
 
   @override
-  List<String> getMonthsShort() {
+  List<String>? getMonthsShort() {
     // TODO: implement getMonthsShort
     return null;
+  }
+
+  @override
+  List<String>? get12hours() {
+    return ["AM", "PM"];
   }
 }

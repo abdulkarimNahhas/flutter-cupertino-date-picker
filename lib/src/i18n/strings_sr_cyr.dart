@@ -33,7 +33,7 @@ class _StringsSrCyrillic extends _StringsI18n {
   }
 
   @override
-  List<String> getMonthsShort() {
+  List<String>? getMonthsShort() {
     return null;
   }
 
@@ -61,5 +61,10 @@ class _StringsSrCyrillic extends _StringsI18n {
       "Суб",
       "Нед",
     ];
+  }
+
+  @override
+  List<String>? get12hours() {
+    return ["AM", "PM"];
   }
 }

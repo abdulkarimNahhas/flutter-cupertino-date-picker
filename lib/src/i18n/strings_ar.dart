@@ -33,6 +33,24 @@ class _StringsAr extends _StringsI18n {
   }
 
   @override
+  List<String>? getMonthsShort() {
+    return [
+      "كانون الثاني",
+      "شباط",
+      "آذار",
+      "نيسان",
+      "أيار",
+      "حزيران",
+      "تموز",
+      "آب",
+      "أيلول",
+      "تشرين الأول",
+      "تشرين الثاني",
+      "كانون الأول"
+    ];
+  }
+
+  @override
   List<String> getWeeksFull() {
     return [
       "الأثنين",
@@ -47,12 +65,19 @@ class _StringsAr extends _StringsI18n {
 
   @override
   List<String> getWeeksShort() {
-    return null;
+    return [
+      "ن",
+      "ث",
+      "ر",
+      "خ",
+      "ج",
+      "س",
+      "ح",
+    ];
   }
 
   @override
-  List<String> getMonthsShort() {
-    // TODO: implement getMonthsShort
-    return null;
+  List<String>? get12hours() {
+    return ["ص", "م"];
   }
 }

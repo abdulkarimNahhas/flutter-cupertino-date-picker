@@ -33,7 +33,7 @@ class _StringsUk extends _StringsI18n {
   }
 
   @override
-  List<String> getMonthsShort() {
+  List<String>? getMonthsShort() {
     return null;
   }
 
@@ -44,7 +44,7 @@ class _StringsUk extends _StringsI18n {
       "Вівторок",
       "Середа",
       "Четвер",
-      "П\'ятниця",
+      "П'ятниця",
       "Субота",
       "Неділя",
     ];
@@ -61,5 +61,10 @@ class _StringsUk extends _StringsI18n {
       "сб",
       "нд",
     ];
+  }
+
+  @override
+  List<String>? get12hours() {
+    return ["AM", "PM"];
   }
 }

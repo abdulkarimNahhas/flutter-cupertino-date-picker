@@ -33,7 +33,7 @@ class _StringsVn extends _StringsI18n {
   }
 
   @override
-  List<String> getMonthsShort() {
+  List<String>? getMonthsShort() {
     return null;
   }
 
@@ -53,5 +53,10 @@ class _StringsVn extends _StringsI18n {
   @override
   List<String> getWeeksShort() {
     return ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'];
+  }
+
+  @override
+  List<String>? get12hours() {
+    return ["AM", "PM"];
   }
 }

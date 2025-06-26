@@ -75,4 +75,9 @@ class _StringsEnUs extends _StringsI18n {
       "Sun",
     ];
   }
+
+  @override
+  List<String>? get12hours() {
+    return ["AM", "PM"];
+  }
 }

@@ -1,29 +1,30 @@
 import 'dart:math';
 
-part 'strings_en_us.dart';
-part 'strings_zh_cn.dart';
-part 'strings_pt_br.dart';
-part 'strings_id.dart';
+part 'strings_ar.dart';
 part 'strings_ar_eg.dart';
-part 'strings_es.dart';
-part 'strings_ro.dart';
 part 'strings_bn.dart';
 part 'strings_bs.dart';
-part 'strings_ar.dart';
-part 'strings_jp.dart';
-part 'strings_ru.dart';
+part 'strings_cs.dart';
 part 'strings_de.dart';
-part 'strings_ko.dart';
-part 'strings_it.dart';
-part 'strings_hu.dart';
-part 'strings_hr.dart';
-part 'strings_uk.dart';
-part 'strings_tr.dart';
-part 'strings_vi.dart';
+part 'strings_en_us.dart';
+part 'strings_es.dart';
 part 'strings_fr.dart';
+part 'strings_hr.dart';
+part 'strings_hu.dart';
+part 'strings_id.dart';
+part 'strings_it.dart';
+part 'strings_jp.dart';
+part 'strings_ko.dart';
+part 'strings_nl.dart';
+part 'strings_pt_br.dart';
+part 'strings_ro.dart';
+part 'strings_ru.dart';
 part 'strings_sr_cyr.dart';
 part 'strings_sr_lat.dart';
-part 'strings_nl.dart';
+part 'strings_tr.dart';
+part 'strings_uk.dart';
+part 'strings_vi.dart';
+part 'strings_zh_cn.dart';
 
 abstract class _StringsI18n {
   const _StringsI18n();
@@ -38,13 +39,15 @@ abstract class _StringsI18n {
   List<String> getMonths();
 
   /// Get the short name of month
-  List<String> getMonthsShort();
+  List<String>? getMonthsShort();
 
   /// Get the full name of week
   List<String> getWeeksFull();
 
   /// Get the short name of week
-  List<String> getWeeksShort();
+  List<String>? getWeeksShort();
+
+  List<String>? get12hours();
 }
 
 enum DateTimePickerLocale {
@@ -93,6 +96,9 @@ enum DateTimePickerLocale {
   /// German (DE)
   de,
 
+  /// Czech (CS)
+  cs,
+
   /// Korea (KO)
   ko,
 
@@ -122,98 +128,79 @@ enum DateTimePickerLocale {
 }
 
 /// Default value of date locale
-const DateTimePickerLocale DATETIME_PICKER_LOCALE_DEFAULT =
-    DateTimePickerLocale.en_us;
+const DateTimePickerLocale DATETIME_PICKER_LOCALE_DEFAULT = DateTimePickerLocale.en_us;
 
 const Map<DateTimePickerLocale, _StringsI18n> datePickerI18n = {
-  DateTimePickerLocale.en_us: const _StringsEnUs(),
-  DateTimePickerLocale.zh_cn: const _StringsZhCn(),
-  DateTimePickerLocale.pt_br: const _StringsPtBr(),
-  DateTimePickerLocale.id: const _StringsId(),
-  DateTimePickerLocale.ar_eg: const _StringsArEg(),
-  DateTimePickerLocale.es: const _StringsEs(),
-  DateTimePickerLocale.fr: const _StringsFr(),
-  DateTimePickerLocale.ro: const _StringsRo(),
-  DateTimePickerLocale.bn: const _StringsBn(),
-  DateTimePickerLocale.bs: const _StringsBs(),
-  DateTimePickerLocale.ar: const _StringsAr(),
-  DateTimePickerLocale.jp: const _StringsJp(),
-  DateTimePickerLocale.ru: const _StringsRu(),
-  DateTimePickerLocale.de: const _StringsDe(),
-  DateTimePickerLocale.ko: const _StringsKo(),
-  DateTimePickerLocale.it: const _StringsIt(),
-  DateTimePickerLocale.hu: const _StringsHu(),
-  DateTimePickerLocale.hr: const _StringsHr(),
-  DateTimePickerLocale.uk: const _StringsUk(),
-  DateTimePickerLocale.tr: const _StringsTr(),
-  DateTimePickerLocale.vi: const _StringsVn(),
-  DateTimePickerLocale.sr_cyrl: const _StringsSrCyrillic(),
-  DateTimePickerLocale.sr_latn: const _StringsSrLatin(),
-  DateTimePickerLocale.nl: const _StringsNl(),
+  DateTimePickerLocale.en_us: _StringsEnUs(),
+  DateTimePickerLocale.zh_cn: _StringsZhCn(),
+  DateTimePickerLocale.pt_br: _StringsPtBr(),
+  DateTimePickerLocale.id: _StringsId(),
+  DateTimePickerLocale.ar: _StringsAr(),
+  DateTimePickerLocale.ar_eg: _StringsArEg(),
+  DateTimePickerLocale.es: _StringsEs(),
+  DateTimePickerLocale.fr: _StringsFr(),
+  DateTimePickerLocale.ro: _StringsRo(),
+  DateTimePickerLocale.bn: _StringsBn(),
+  DateTimePickerLocale.bs: _StringsBs(),
+  DateTimePickerLocale.jp: _StringsJp(),
+  DateTimePickerLocale.ru: _StringsRu(),
+  DateTimePickerLocale.de: _StringsDe(),
+  DateTimePickerLocale.cs: _StringsCs(),
+  DateTimePickerLocale.ko: _StringsKo(),
+  DateTimePickerLocale.it: _StringsIt(),
+  DateTimePickerLocale.hu: _StringsHu(),
+  DateTimePickerLocale.hr: _StringsHr(),
+  DateTimePickerLocale.uk: _StringsUk(),
+  DateTimePickerLocale.tr: _StringsTr(),
+  DateTimePickerLocale.vi: _StringsVn(),
+  DateTimePickerLocale.sr_cyrl: _StringsSrCyrillic(),
+  DateTimePickerLocale.sr_latn: _StringsSrLatin(),
+  DateTimePickerLocale.nl: _StringsNl(),
 };
 
 class DatePickerI18n {
   /// Get done button text
   static String getLocaleDone(DateTimePickerLocale locale) {
-    _StringsI18n i18n = datePickerI18n[locale] ??
-        datePickerI18n[DATETIME_PICKER_LOCALE_DEFAULT];
-    return i18n.getDoneText() ??
-        datePickerI18n[DATETIME_PICKER_LOCALE_DEFAULT].getDoneText();
+    _StringsI18n i18n = datePickerI18n[locale] ?? datePickerI18n[DATETIME_PICKER_LOCALE_DEFAULT]!;
+    return i18n.getDoneText();
   }
 
   /// Get cancel button text
   static String getLocaleCancel(DateTimePickerLocale locale) {
-    _StringsI18n i18n = datePickerI18n[locale] ??
-        datePickerI18n[DATETIME_PICKER_LOCALE_DEFAULT];
-    return i18n.getCancelText() ??
-        datePickerI18n[DATETIME_PICKER_LOCALE_DEFAULT].getCancelText();
+    _StringsI18n i18n = datePickerI18n[locale] ?? datePickerI18n[DATETIME_PICKER_LOCALE_DEFAULT]!;
+    return i18n.getCancelText();
   }
 
   /// Get locale month array
-  static List<String> getLocaleMonths(DateTimePickerLocale locale,
-      [bool isFull = true]) {
-    _StringsI18n i18n = datePickerI18n[locale] ??
-        datePickerI18n[DATETIME_PICKER_LOCALE_DEFAULT];
+  static List<String>? getLocaleMonths(DateTimePickerLocale locale, [bool isFull = true]) {
+    _StringsI18n i18n = datePickerI18n[locale] ?? datePickerI18n[DATETIME_PICKER_LOCALE_DEFAULT]!;
 
     if (isFull) {
       List<String> months = i18n.getMonths();
-      if (months != null && months.isNotEmpty) {
-        return months;
-      }
-      return datePickerI18n[DATETIME_PICKER_LOCALE_DEFAULT].getMonths();
+      return months;
     }
 
-    List<String> months = i18n.getMonthsShort();
+    List<String>? months = i18n.getMonthsShort();
     if (months != null && months.isNotEmpty && months.length == 12) {
       return months;
     }
-    return datePickerI18n[DATETIME_PICKER_LOCALE_DEFAULT].getMonthsShort();
+    return i18n.getMonthsShort();
   }
 
   /// Get locale week array
-  static List<String> getLocaleWeeks(DateTimePickerLocale locale,
-      [bool isFull = true]) {
-    _StringsI18n i18n = datePickerI18n[locale] ??
-        datePickerI18n[DATETIME_PICKER_LOCALE_DEFAULT];
+  static List<String>? getLocaleWeeks(DateTimePickerLocale locale, [bool isFull = true]) {
+    _StringsI18n i18n = datePickerI18n[locale] ?? datePickerI18n[DATETIME_PICKER_LOCALE_DEFAULT]!;
     if (isFull) {
       List<String> weeks = i18n.getWeeksFull();
-      if (weeks != null && weeks.isNotEmpty) {
-        return weeks;
-      }
-      return datePickerI18n[DATETIME_PICKER_LOCALE_DEFAULT].getWeeksFull();
+      return weeks;
     }
 
-    List<String> weeks = i18n.getWeeksShort();
+    List<String>? weeks = i18n.getWeeksShort();
     if (weeks != null && weeks.isNotEmpty) {
       return weeks;
     }
 
     List<String> fullWeeks = i18n.getWeeksFull();
-    if (fullWeeks != null && fullWeeks.isNotEmpty) {
-      return fullWeeks
-          .map((item) => item.substring(0, min(3, item.length)))
-          .toList();
-    }
-    return datePickerI18n[DATETIME_PICKER_LOCALE_DEFAULT].getWeeksShort();
+    return fullWeeks.map((item) => item.substring(0, min(3, item.length))).toList();
   }
 }

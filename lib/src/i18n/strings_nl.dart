@@ -75,4 +75,9 @@ class _StringsNl extends _StringsI18n {
       "Zo.",
     ];
   }
+
+  @override
+  List<String>? get12hours() {
+    return ["AM", "PM"];
+  }
 }

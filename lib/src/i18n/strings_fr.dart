@@ -75,4 +75,9 @@ class _StringsFr extends _StringsI18n {
       "Dim.",
     ];
   }
+
+  @override
+  List<String>? get12hours() {
+    return ["AM", "PM"];
+  }
 }

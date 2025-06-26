@@ -75,4 +75,9 @@ class _StringsPtBr extends _StringsI18n {
       "Dom",
     ];
   }
+
+  @override
+  List<String>? get12hours() {
+    return ["AM", "PM"];
+  }
 }

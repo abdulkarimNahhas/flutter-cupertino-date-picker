@@ -16,20 +16,7 @@ class _StringsJp extends _StringsI18n {
 
   @override
   List<String> getMonths() {
-    return [
-      "1月",
-      "2月",
-      "3月",
-      "4月",
-      "5月",
-      "6月",
-      "7月",
-      "8月",
-      "9月",
-      "10月",
-      "11月",
-      "12月"
-    ];
+    return ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"];
   }
 
   @override
@@ -59,8 +46,13 @@ class _StringsJp extends _StringsI18n {
   }
 
   @override
-  List<String> getMonthsShort() {
+  List<String>? getMonthsShort() {
     // TODO: implement getMonthsShort
     return null;
+  }
+
+  @override
+  List<String>? get12hours() {
+    return ["AM", "PM"];
   }
 }

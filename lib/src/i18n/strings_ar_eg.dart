@@ -33,8 +33,21 @@ class _StringsArEg extends _StringsI18n {
   }
 
   @override
-  List<String> getMonthsShort() {
-    return null;
+  List<String>? getMonthsShort() {
+    return [
+      "يناير",
+      "فبراير",
+      "مارس",
+      "أبريل",
+      "مايو",
+      "يونيو",
+      "يوليو",
+      "أغسطس",
+      "سبتمبر",
+      "أكتوبر",
+      "نوفمبر",
+      "ديسمبر"
+    ];
   }
 
   @override
@@ -61,5 +74,10 @@ class _StringsArEg extends _StringsI18n {
       "س",
       "ح",
     ];
+  }
+
+  @override
+  List<String>? get12hours() {
+    return ["ص", "م"];
   }
 }
